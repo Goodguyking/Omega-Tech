@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: url('assets/bg.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    font-family: Arial, sans-serif; /* Default font for body, optional */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Font for <p> tags */
+  p {
+    font-family: Tahoma, sans-serif;
+  }

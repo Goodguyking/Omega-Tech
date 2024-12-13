@@ -1,0 +1,45 @@
+<div class="register-form">
+  <h2>Register</h2>
+
+  <form (ngSubmit)="onRegister()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="name"
+        name="name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn-primary">Register</button>
+  </form>
+
+  <div class="login-redirect">
+    <p>Already have an account?</p>
+    <button (click)="navigateToLogin()" class="btn-secondary">Login</button>
+  </div>
+</div>

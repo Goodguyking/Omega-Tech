@@ -1,0 +1,115 @@
+<div class="container mt-4">
+    <h3>User List</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userID }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="openEditForm(user)"
+              data-bs-toggle="modal"
+              data-bs-target="#editUserModal"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="editUserModal"
+    tabindex="-1"
+    aria-labelledby="editUserModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="editForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                formControlName="name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                formControlName="email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select
+                id="role"
+                class="form-select"
+                formControlName="role"
+              >
+                <option value="user">User</option>
+                <option value="seller">Seller</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="updateUser()"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

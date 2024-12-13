@@ -1,0 +1,83 @@
+.omega-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .footer-section {
+    flex: 1 1 calc(25% - 20px);
+    margin: 10px;
+  }
+  .footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .footer-section p, .footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-section ul li a:hover {
+    color: #00bcd4;
+  }
+  .social-links li a {
+    display: flex;
+    align-items: center;
+  }
+  .social-links li a i {
+    margin-right: 8px;
+  }
+  .footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+  }
+
+  /* Ensure full height for the page */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Page container setup */
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Main content should fill available space */
+  .main-content {
+    flex: 1;
+  }
+  
+  /* Footer stays at the bottom */
+  .omega-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  

@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql" // Your database provider (e.g., MySQL)
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userID    Int      @id @default(autoincrement()) // Auto-incremented ID
+  name      String
+  email     String   @unique // Email must be unique
+  password  String
+  role      Role     @default(user) // Roles: 'user', 'seller', 'admin'
+  createdAt DateTime @default(now()) // Default value for creation date
+
+  Cart     Cart[] // Relation with Cart
+  Checkout Checkout[] // Relation with Checkout
+
+  Product Product[] // Relation with Product
+}
+
+model Product {
+  productID   Int    @id @default(autoincrement()) // Product ID as primary key
+  productName String // Name of the product
+  description String @db.LongText // Change to LongText in the database
+  price       Float // Price of the product
+  photo       String // URL or path to the product's photo
+  userID      Int // Foreign key to link the product with the seller (user)
+
+  user User @relation(fields: [userID], references: [userID]) // Relation to User
+
+  Cart     Cart[] // Relation with Cart
+  Checkout Checkout[] // Relation with Checkout
+}
+
+enum Role {
+  user
+  seller
+  admin
+}
+
+model Cart {
+  cartID    Int      @id @default(autoincrement())
+  userID    Int
+  productID Int
+  quantity  Int
+  dateAdded DateTime @default(now())
+
+  user    User    @relation(fields: [userID], references: [userID]) // Relation with User
+  product Product @relation(fields: [productID], references: [productID]) // Relation with Product
+}
+
+model Checkout {
+  checkoutID    Int      @id @default(autoincrement())
+  userID        Int
+  productID     Int
+  quantity      Int
+  dateAdded     DateTime
+  receiveDate   DateTime
+  paymentMethod String   @default("Cash on Delivery") // Add a default value here
+  address      String    @default("")
+  contactPerson String   @default("")
+  phoneNumber  String    @default("")
+
+  user    User    @relation(fields: [userID], references: [userID]) // Relation with User
+  product Product @relation(fields: [productID], references: [productID]) // Relation with Product
+
+  @@map("checkout") // Map to the `checkout` table in your database
+}

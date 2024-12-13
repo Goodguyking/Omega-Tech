@@ -1,0 +1,63 @@
+/* Container for the whole dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header Styling */
+  .dashboard-header {
+    background-color: #333; /* Dark background for the header */
+    color: white; /* White text */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Space between title and logout button */
+    align-items: center;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 24px;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .logout-button {
+    background-color: #f44336; /* Red color for logout button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Change the button color on hover */
+  .logout-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Content section styles */
+  .dashboard-content {
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto; /* Allow scrolling if content exceeds screen height */
+  }
+  
+  /* Make header title responsive */
+.dashboard-header h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-header {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      align-items: flex-start;
+    }
+  
+    .logout-button {
+      margin-top: 10px; /* Add some space above the logout button */
+    }
+  }
+  

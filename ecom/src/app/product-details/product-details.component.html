@@ -1,0 +1,27 @@
+<div class="details-container">
+  <!-- Back Button -->
+  <button class="btn btn-secondary back-button" routerLink="/home" routerLinkActive="active">
+    &larr; Back to Home
+  </button>
+
+  <!-- Product Showcase -->
+  <div class="details-card">
+    <div class="details-image-container">
+      <img
+        [src]="'http://localhost:3000/uploads/' + product?.photo"
+        alt="{{ product?.productName }}"
+        class="details-image"
+      />
+    </div>
+    <div class="details-info">
+      <h2 class="product-title">{{ product?.productName }}</h2>
+      <p class="product-description">{{ product?.description }}</p>
+      <p class="product-price">
+        <strong>Price:</strong> ${{ product?.price }}
+      </p>
+      <button class="btn btn-success mt-3" (click)="addToCart()">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

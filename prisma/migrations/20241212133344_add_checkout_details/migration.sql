@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `checkout` ADD COLUMN `address` VARCHAR(191) NOT NULL DEFAULT '',
+    ADD COLUMN `contactPerson` VARCHAR(191) NOT NULL DEFAULT '',
+    ADD COLUMN `phoneNumber` VARCHAR(191) NOT NULL DEFAULT '';
